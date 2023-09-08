@@ -1,0 +1,11 @@
+Para el punto 1.1 LISTA DE MEDIOS OPTICOS una vez posicionado en la carpeta se hizo uso del siguiente codigo: 
+awk -F "," 'NR>1{print $1}' indices_refracción.csv > materiales.txt
+
+Para el putno 1.2 DESCARGA DE ARCHIVOS se posicionó en la carpeta de Taller_1 y se hizo el siguiente codigo siguiendo lo visto en la complementaria:
+$ while IFS=',' read -r categoria fabricante material enlace;
+> do
+>     mkdir -p "$categoria"
+>    enlace_c=$(echo "$enlace" | tr -d '\r')
+>    wget -O "$categoria/$material" "$enlace_c"
+>     echo "Descargado: $material en $categoria/"
+> done < "$input_file"
